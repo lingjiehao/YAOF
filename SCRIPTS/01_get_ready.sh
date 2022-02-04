@@ -1,8 +1,8 @@
 #!/bin/bash
 
 latest_release="$(curl -s https://github.com/openwrt/openwrt/tags | grep -Eo "v[0-9\.]+\-*r*c*[0-9]*.tar.gz" | sed -n '/[2-9][0-9]/p' | sed -n 1p | sed 's/.tar.gz//g')"
-git clone --single-branch -b ${latest_release} https://github.com/openwrt/openwrt openwrt_release
-git clone --single-branch -b openwrt-21.02 https://github.com/openwrt/openwrt openwrt
+git clone --single-branch -b ${latest_release} https://github.com/openwrt/openwrt openwrt_release --depth=1
+git clone --single-branch -b openwrt-21.02 https://github.com/openwrt/openwrt openwrt --depth=1
 rm -f ./openwrt/include/version.mk
 rm -f ./openwrt/include/kernel.mk
 rm -f ./openwrt/include/kernel-version.mk
