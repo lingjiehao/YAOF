@@ -178,20 +178,8 @@ mkdir -p package/new/luci-app-diskman && \
 wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/applications/luci-app-diskman/Makefile -O package/new/luci-app-diskman/Makefile
 mkdir -p package/new/parted && \
 wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/Parted.Makefile -O package/new/parted/Makefile
-# Dnsfilter
-git clone --depth 1 https://github.com/kiddin9/luci-app-dnsfilter.git package/new/luci-app-dnsfilter
-# Dnsproxy
-svn co https://github.com/immortalwrt/packages/trunk/net/dnsproxy feeds/packages/net/dnsproxy
-ln -sf ../../../feeds/packages/net/dnsproxy ./package/feeds/packages/dnsproxy
-sed -i '/CURDIR/d' feeds/packages/net/dnsproxy/Makefile
-svn co https://github.com/QiuSimons/OpenWrt-Add/trunk/luci-app-dnsproxy package/new/luci-app-dnsproxy
 # IPSec
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ipsec-vpnd package/lean/luci-app-ipsec-vpnd
-# Mosdns
-#svn co https://github.com/immortalwrt/packages/trunk/net/mosdns feeds/packages/net/mosdns
-#ln -sf ../../../feeds/packages/net/mosdns ./package/feeds/packages/mosdns
-#sed -i '/config.yaml/d' feeds/packages/net/mosdns/Makefile
-#sed -i '/mosdns-init-openwrt/d' feeds/packages/net/mosdns/Makefile
 svn co https://github.com/QiuSimons/openwrt-mos/trunk/mosdns package/new/mosdns
 svn co https://github.com/QiuSimons/openwrt-mos/trunk/luci-app-mosdns package/new/luci-app-mosdns
 # 流量监管
@@ -204,8 +192,6 @@ wget https://destan19.github.io/assets/oaf/open_feature/feature-06-18.cfg -O ./o
 popd
 # 清理内存
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ramfree package/lean/luci-app-ramfree
-# ServerChan 微信推送
-git clone -b master --depth 1 https://github.com/tty228/luci-app-serverchan.git package/new/luci-app-serverchan
 # socat
 svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-socat package/new/luci-app-socat
 # USB 打印机
