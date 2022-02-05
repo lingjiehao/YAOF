@@ -115,16 +115,16 @@ jobs:
         mkdir -p ./artifact/
         mv openwrt/bin/targets/rockchip/armv8/*sysupgrade.img* ./artifact/
         cd ./artifact/
+        #ls -Ahl
+        #gzip -d *.gz && exit 0
+        #gzip --best *.img
         ls -Ahl
-        gzip -d *.gz && exit 0
-        gzip --best *.img
-        ls -Ahl
-        sha256sum openwrt*r2s* | tee R2S-GC404-$(date +%Y-%m-%d)-${{ env.latest_release }}.sha256sum
+        sha256sum openwrt*r2s* | tee sha256sum
         ls -Ahl
     - name: Upload artifact
       uses: actions/upload-artifact@main
       with:
-        name: OpenWRT_${{ env.latest_release }}
+        name: OpenWRT-${{ env.latest_release }}
         path: ./artifact/
 
     - name: Create release
